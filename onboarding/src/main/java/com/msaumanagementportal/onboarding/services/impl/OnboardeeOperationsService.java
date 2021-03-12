@@ -31,7 +31,7 @@ public class OnboardeeOperationsService implements IOnboardeeOperationsService{
 	}
 
 	@Override
-	public boolean deleteOnboardee(Integer onboardee_id) {
+	public Integer deleteOnboardee(Integer onboardee_id) {
 		return iOnboardeeOperationsDao.deleteOnboardee(onboardee_id);
 	}
 

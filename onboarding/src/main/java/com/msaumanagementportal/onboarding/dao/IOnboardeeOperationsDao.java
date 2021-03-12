@@ -12,7 +12,7 @@ public interface IOnboardeeOperationsDao {
 	
 	public List<OnboardeeCompleteInfo> getAllOnboardee();
 
-	public boolean deleteOnboardee(Integer onboardee_id);
+	public Integer deleteOnboardee(Integer onboardee_id);
 	
 	public boolean editOnboardee(OnboardeeCompleteInfo onboardeeCompleteInfo);
 	

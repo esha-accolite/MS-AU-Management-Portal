@@ -30,7 +30,7 @@ public class OnboardeePersonalDetails {
 		
 	}
 
-	public OnboardeePersonalDetails(Integer id, String name, String contact, String email, Date dob, String hometown,
+	public OnboardeePersonalDetails(Integer id, String name, String contact, String email, Date dob,
 			String address, Integer experience, String highest_education, String college_name, String bank_name,
 			String bank_account_num) {
 		super();

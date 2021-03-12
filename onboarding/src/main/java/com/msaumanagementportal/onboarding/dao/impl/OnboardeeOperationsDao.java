@@ -75,75 +75,6 @@ public class OnboardeeOperationsDao implements IOnboardeeOperationsDao{
 		srcMap.addValue(OnboardeeStatusInfoTableConstants.creation_tm, create_time);
 		namedParameterJdbcTemplate.update(OnboardeeOperationsQueries.addOnboardeeStatusInfo_Query, srcMap, holder, new String[] { OnboardeeStatusInfoTableConstants.id });
 	}
-	
-//	private MapSqlParameterSource srcmapOnboardeeStatusInfo(MapSqlParameterSource srcMap,OnboardeeCompleteInfo onboardeeCompleteInfo, Integer key) {
-//		Calendar cal = Calendar.getInstance();
-//		Timestamp create_time = new Timestamp(System.currentTimeMillis());
-//		cal.setTime(create_time);
-//		Timestamp completion_time = new Timestamp(System.currentTimeMillis());
-//		cal.add(Calendar.MONDAY, 6);
-//		completion_time.setTime(cal.getTime().getTime());
-//		
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.id, key);
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.hiring_manager, onboardeeCompleteInfo.getHiring_manager());
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.demand_id, onboardeeCompleteInfo.getDemand_id());
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.location, onboardeeCompleteInfo.getLocation());
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.onboarding_status, "PENDING");
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.onboarding_start_date, create_time);
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.eta_for_completion, completion_time);
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.bgc_check_status, "NOT VERIFIED");
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.creation_tm, create_time);
-//		return srcMap;
-//	}
-
-	
-	
-//	private OnboardeePersonalDetails getOnboardeePersonalDetails(Integer onboardee_id) {
-//		MapSqlParameterSource srcMap = new MapSqlParameterSource();
-//		srcMap.addValue(OnboardeePersonalDetailsTableConstants.id, onboardee_id);
-//		List<OnboardeePersonalDetails> onboardeePersonalDetails =  namedParameterJdbcTemplate.query(OnboardeeOperationsQueries.getOnboardeePersonalDetails_Query, srcMap,(resultSet, rowNum) -> {
-//			return mapOnboardeePersonalDetails(resultSet);
-//		});
-//		return onboardeePersonalDetails.get(0);
-//	}
-//	
-//	private OnboardeeStatusInfo getOnboardeeStatusInfo(Integer onboardee_id) {
-//		MapSqlParameterSource srcMap = new MapSqlParameterSource();
-//		srcMap.addValue(OnboardeeStatusInfoTableConstants.id, onboardee_id);
-//		List<OnboardeeStatusInfo> onboardeeStatusInfo = namedParameterJdbcTemplate.query(OnboardeeOperationsQueries.getOnboardeeStatusInfo_Query, srcMap,(resultSet, rowNum) -> {
-//			return mapOnboardeeStatusInfo(resultSet);
-//		});
-//		return onboardeeStatusInfo.get(0);
-//	}
-//	
-//	private OnboardeePersonalDetails mapOnboardeePersonalDetails(ResultSet resultSet) throws SQLException {
-//		OnboardeePersonalDetails onboardeePersonalDetails = new OnboardeePersonalDetails();
-//		onboardeePersonalDetails.setName(resultSet.getString(OnboardeePersonalDetailsTableConstants.name));
-//		onboardeePersonalDetails.setContact(resultSet.getString(OnboardeePersonalDetailsTableConstants.contact));
-//		onboardeePersonalDetails.setEmail(resultSet.getString(OnboardeePersonalDetailsTableConstants.email));
-//		onboardeePersonalDetails.setDob(resultSet.getDate(OnboardeePersonalDetailsTableConstants.dob));
-//		onboardeePersonalDetails.setAddress(resultSet.getString(OnboardeePersonalDetailsTableConstants.address));
-//		onboardeePersonalDetails.setExperience(resultSet.getInt(OnboardeePersonalDetailsTableConstants.experience));
-//		onboardeePersonalDetails.setHighest_education(resultSet.getString(OnboardeePersonalDetailsTableConstants.highest_education));
-//		onboardeePersonalDetails.setCollege_name(resultSet.getString(OnboardeePersonalDetailsTableConstants.college_name));
-//		onboardeePersonalDetails.setBank_name(resultSet.getString(OnboardeePersonalDetailsTableConstants.bank_name));
-//		onboardeePersonalDetails.setBank_account_num(resultSet.getString(OnboardeePersonalDetailsTableConstants.bank_account_num));
-//		return onboardeePersonalDetails;
-//	}
-//	
-//	private OnboardeeStatusInfo mapOnboardeeStatusInfo(ResultSet resultSet) throws SQLException {
-//		OnboardeeStatusInfo onboardeeStatusInfo = new OnboardeeStatusInfo();
-//		onboardeeStatusInfo.setDemand_id(resultSet.getInt(OnboardeeStatusInfoTableConstants.demand_id));
-//		onboardeeStatusInfo.setHiring_manager(resultSet.getString(OnboardeeStatusInfoTableConstants.hiring_manager));
-//		onboardeeStatusInfo.setLocation(resultSet.getString(OnboardeeStatusInfoTableConstants.location));
-//		onboardeeStatusInfo.setOnboarding_status(resultSet.getString(OnboardeeStatusInfoTableConstants.onboarding_status));
-//		onboardeeStatusInfo.setOnboarding_start_date(resultSet.getDate(OnboardeeStatusInfoTableConstants.onboarding_start_date));
-//		onboardeeStatusInfo.setEta_for_completion(resultSet.getDate(OnboardeeStatusInfoTableConstants.eta_for_completion));
-//		onboardeeStatusInfo.setBgc_check_status(resultSet.getString(OnboardeeStatusInfoTableConstants.bgc_check_status));
-//		onboardeeStatusInfo.setCreation_tm(resultSet.getTimestamp(OnboardeeStatusInfoTableConstants.creation_tm));
-//		onboardeeStatusInfo.setModified_tm(resultSet.getTimestamp(OnboardeeStatusInfoTableConstants.modified_tm));
-//		return onboardeeStatusInfo;
-//	}
 
 	private OnboardeeCompleteInfo mapOnboardeeCompleteInfo(ResultSet resultSet) throws SQLException {
 		OnboardeeCompleteInfo onboardeeCompleteInfo = new OnboardeeCompleteInfo();
@@ -188,12 +119,12 @@ public class OnboardeeOperationsDao implements IOnboardeeOperationsDao{
 	}
 
 	@Override
-	public boolean deleteOnboardee(Integer onboardee_id) {
+	public Integer deleteOnboardee(Integer onboardee_id) {
 		MapSqlParameterSource srcMap = new MapSqlParameterSource();
 		srcMap.addValue("onboardee_id", onboardee_id);
 		namedParameterJdbcTemplate.update(OnboardeeOperationsQueries.deleteOnboardeePersonalDetails_Query, srcMap);
 		namedParameterJdbcTemplate.update(OnboardeeOperationsQueries.deleteOnboardeeStatusInfo_Query, srcMap);
-		return true;
+		return onboardee_id;
 	}
 
 	@Override

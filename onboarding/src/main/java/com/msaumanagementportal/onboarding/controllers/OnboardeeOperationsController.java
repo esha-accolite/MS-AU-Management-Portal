@@ -47,7 +47,7 @@ public class OnboardeeOperationsController {
 	@DeleteMapping("/delete/{onboardee_id}")
 //	@CrossOrigin(origins = "http://localhost:4200")
 	@ResponseBody
-	public boolean deleteOnboardee(@PathVariable Integer onboardee_id) {
+	public Integer deleteOnboardee(@PathVariable Integer onboardee_id) {
 		return iOnboardeeOperationsService.deleteOnboardee(onboardee_id);
 	}
 	
