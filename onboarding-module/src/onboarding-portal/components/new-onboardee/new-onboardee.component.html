@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div>
+  <h1 class = "heading"><strong>NEW ONBOARDEE</strong></h1>
+</div>
+<section>
+  <div class="container">
+    <form [formGroup] = "onboardeeForm">
+      <div class="form-group col-md-4">
+        <label>Name </label>
+        <input class=" form-control" formControlName="name" placeholder="Name" value="" />
+      </div>
+      <div class="form-group col-md-4">
+        <label>Contact </label>
+        <input type="tel" class=" form-control" formControlName="contact" placeholder="Contact" />  
+      </div>
+      <div class="form-group col-md-4">
+        <label>Email </label> 
+        <input type="email" class=" form-control" formControlName="email" placeholder="Email" />  
+      </div>
+      <div class="form-group col-md-4">
+        <label>DOB </label>
+        <input type="date" class=" form-control" formControlName="dob" placeholder="Dob" /> 
+      </div>
+      <div class="form-group col-md-4">
+        <label>Address </label>
+        <input class=" form-control" formControlName="address" placeholder="Address" />
+      </div>
+      <div class="form-group col-md-4">
+        <label>Experience </label>
+        <input type="number" class=" form-control" formControlName="experience" placeholder="Experience" />  
+      </div>
+      <div class="form-group col-md-4">
+        <label for="highest_education">Highest Education </label>
+        <select class="form-control" formControlName = "highest_education">
+            <option>graduate</option>
+            <option>undergraduate</option>
+          </select>
+      </div>
+      <!-- <div class="form-group col-md-4">
+        <label>Email </label> 
+        <input class=" form-control" formControlName="highest_education" placeholder="Highest Education" />  
+      </div> -->
+      <div class="form-group col-md-4">
+        <label>College Name </label>
+        <input class=" form-control" formControlName="college_name" placeholder="College Name" /> 
+      </div>
+      <div class="form-group col-md-4">
+        <label>Bank Name </label>
+        <input class=" form-control" formControlName="bank_name" placeholder="Bank Name" /> 
+      </div>
+      <div class="form-group col-md-4">
+        <label>Bank Account Number </label>
+        <input class=" form-control" formControlName="bank_account_num" placeholder="Bank Account Number" />
+      </div>
+      <div class="form-group col-md-4">
+        <label>Hiring Manager </label>
+        <input class=" form-control" formControlName="hiring_manager" placeholder="Hiring Manager" />  
+      </div>
+      <div class="form-group col-md-4">
+        <label>Demand ID </label> 
+        <input type="number" class=" form-control" formControlName="demand_id" placeholder="Demand ID" />  
+      </div>
+      <div class="form-group col-md-4">
+        <label for="location">Location </label>
+        <select class="form-control" formControlName = "location">
+            <option>Bangalore</option>
+            <option>Mumbai</option>
+            <option>Chennai</option>
+          </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label>Onboarding Start Date</label>
+        <input type="date" class=" form-control" formControlName="onboarding_start_date" placeholder="onboarding_start_date" /> 
+      </div>
+      <!-- <div class="form-group col-md-3">
+        <label for="onboarding_status">Onboarding Status </label>
+        <select class="form-control" formControlName = "onboarding_status">
+            <option>PENDING</option>
+            <option>ONBOARDED</option>
+          </select>
+      </div> -->
+      <!-- <div class="form-group col-md-3">
+        <label>ETA for Completion</label>
+        <input type="date" class="form-control" formControlName="eta_for_completion" placeholder="eta_for_completion" /> 
+      </div>
+      <div class="form-group col-md-3">
+        <label for="bgc_check_status">Bgc Check Status </label>
+        <select class="form-control" formControlName = "bgc_check_status">
+            <option>NOT VERIFIED</option>
+            <option>VERIFIED</option>
+          </select>
+      </div> -->
+      
+      <!-- <input type="button" [value]="buttonLabel" (click)="addOrUpdateOnboardee()"/> -->
+    </form>
+    <button type="button" class="btn btn-success button-style" (click)="addOnboardee()" >Add</button>
+  </div>
+</section>

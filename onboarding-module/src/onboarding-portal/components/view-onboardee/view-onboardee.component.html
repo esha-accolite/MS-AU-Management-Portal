@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div>
+  <h1 class = "heading"><strong>ONBOARDEE DETAILS</strong></h1>
+</div>
+<div class="container">
+                <!-- {{item.id}}<br /> -->
+                Name: {{ item.name }} <br />
+                Contact: {{ item.contact }}<br />
+                Email: {{ item.email }}<br />
+                Dob: {{ item.dob }}<br />
+                Address : {{item.address}}<br />
+                Experience: {{item.experience}}<br />
+                Highest Education: {{ item.highest_education }} <br />
+                College Name: {{ item.college_name }}<br />
+                Bank Name: {{ item.bank_name }}<br />
+                Bank Account Num: {{ item.bank_account_num }}<br />
+                Hiring Manager : {{item.hiring_manager}}<br />
+                Demand ID: {{item.demand_id}}<br />
+                Location: {{ item.location }}<br />
+                Onboarding Status: {{ item.onboarding_status }}<br />
+                Onboarding Start Date : {{item.onboarding_start_date}}<br />
+                Eta For Completion: {{item.eta_for_completion}}<br />
+                Bgc Check Status: {{ item.bgc_check_status }} <br />
+                Creation Time: {{ item.creation_tm }}<br />
+                Modified Time: {{ item.modified_tm }}<br />
+                <br />
+              <div class="buttons">
+                <button class="btn btn-info button-style" [routerLink]="['/edit-onboardee']" [state]="item">
+                  UPDATE
+                </button>
+              </div>
+            </div>
+          <!-- </ng-template> -->
+        <!-- <label>Name: </label> -->
+        <!-- {{}} -->
+      <!-- <br />
+      <br />
+      <label>Contact: </label>
+      <input type="tel" formControlName="contact" placeholder="Contact" />
+      <br />
+      <input type="email" formControlName="email" placeholder="Email" />
+      <input type="date" formControlName="dob" placeholder="Dob" />
+      <input formControlName="address" placeholder="Address" />
+      <input type="number" formControlName="experience" placeholder="Experience" />
+      <input formControlName="highest_education" placeholder="Highest Education" />
+      <input formControlName="college_name" placeholder="College Name" />
+      <input formControlName="bank_name" placeholder="Bank Name" />
+      <input formControlName="bank_account_num" placeholder="Bank Account Number" />
+      <input formControlName="hiring_manager" placeholder="Hiring Manager" />
+      <input type="number" formControlName="demand_id" placeholder="Demand ID" />
+      <input formControlName="location" placeholder="location" />
+      <input type="date" formControlName="onboarding_start_date" placeholder="onboarding_start_date" /> -->
+      <!-- <input formControlName="onboarding_status" placeholder="Onboarding Status" /> -->
+      <!-- <input type="date" formControlName="eta_for_completion" placeholder="eta_for_completion" /> -->
+      <!-- <input formControlName="bgc_check_status" placeholder="bgc_check_status" /> -->
+      <!-- <button  (click)="addOnboardee()" >Add</button> -->
+    <!-- </form> -->
+    <!-- </div>
+</section> -->

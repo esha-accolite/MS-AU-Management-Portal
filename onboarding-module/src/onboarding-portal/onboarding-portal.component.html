@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<router-outlet>
+  <div>
+    <h1 class = "heading"><strong>ONBOARDING PORTAL</strong></h1>
+  </div>
+<hr />
+<div class="container">
+    <button class="btn btn-info button-style-newonb" routerLink="/new-onboardee">Add New Onboardee</button>
+    <button class="btn btn-info button-style-trend" routerLink="/graphical-view">Trend Analysis</button>
+</div>
+<hr />
+<div class="container search-style">
+  <form [formGroup] = "onboardeeSearchForm">
+    <label for="search_parameter">Search By</label>
+    <select class="form-control" formControlName = "search_parameter">
+        <option>Name</option>
+        <option>Location</option>
+        <option>Onboarding Status</option>
+        <option>BGC Verification Status</option>
+        <option>Demand ID</option>
+      </select>
+    <label>Keyword </label>
+    <input class=" form-control" formControlName="keyword" placeholder="Keyword" />
+  <button type="button" class="btn btn-info search-button" (click)="searchOnboardee()">Search</button>
+</form>
+</div>
+<hr />
+<div class="container">
+    <div *ngIf="onboardees.length == 0">
+        No onboardees found
+      </div>
+    <ng-template ngFor let-item [ngForOf]="onboardees">
+        <div class="tile">
+          <div class="meaning">
+            <button>{{item.id}}</button> <br />
+            <div class="row">
+                <div class="col-md-4">
+                  <strong>Name:</strong> {{ item.name }} <br />
+                  <!-- Contact: {{ item.contact }}<br /> -->
+                  <!-- Email: {{ item.email }}<br /> -->
+                  <!-- Dob: {{ item.dob }}<br /> -->
+                  <!-- Address : {{item.address}}<br /> -->
+                  <!-- Experience: {{item.experience}}<br /> -->
+                  <!-- Highest Education: {{ item.highest_education }} <br /> -->
+                  <!-- College Name: {{ item.college_name }}<br /> -->
+                  <!-- Bank Name: {{ item.bank_name }}<br /> -->
+                  <!-- Bank Account Num: {{ item.bank_account_num }}<br /> -->
+                  <strong>Hiring Manager:</strong> {{item.hiring_manager}}<br />
+                  </div>
+                  <div class="col-md-4">
+                  <strong>Demand ID:</strong> {{item.demand_id}}<br />  
+                
+                  <strong>Location:</strong> {{ item.location }}<br />
+                  </div>
+                  <div class="col-md-4">
+                  <strong>Onboarding Status:</strong>{{ item.onboarding_status }}<br />
+                  <!-- Onboarding Start Date : {{item.onboarding_start_date}}<br /> -->
+                  <!-- Eta For Completion: {{item.eta_for_completion}}<br /> -->
+                  <strong>Bgc Check Status:</strong> {{ item.bgc_check_status }} <br />
+                  <!-- Creation Time: {{ item.creation_tm }}<br /> -->
+                  <!-- Modified Time: {{ item.modified_tm }}<br /> -->
+                </div>
+              </div>
+        </div>
+          <div class="buttons">
+            <button class="crud" [routerLink]="['/view-onboardee', item.id]">
+              View
+            </button>
+            <button class="crud" [routerLink]="['/edit-onboardee']" [state]="item">
+              Edit
+            </button>
+            <button class="crud" (click)="deleteOnboardee(item)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+</router-outlet>

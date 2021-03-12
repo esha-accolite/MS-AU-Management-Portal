@@ -1,0 +1,6 @@
+{
+    "/onboardee/":{
+        "target": "http://localhost:8040",
+        "secure" : false
+    }
+}
