@@ -18,7 +18,6 @@ export class OnboardeeService {
   constructor(private http: HttpClient) { }
 
   getAllOnboardee(): Observable<any> {
-    // console.log(this.onboardeeList);
     return this.http.get(this.GET_ALL_ONBOARDEE);
   }
 
